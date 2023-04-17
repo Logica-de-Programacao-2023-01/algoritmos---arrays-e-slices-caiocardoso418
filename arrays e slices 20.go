@@ -1,0 +1,30 @@
+package main
+
+import "fmt"
+
+func main() {
+	var num int
+	fmt.Println("Digite o tamanhho da lista:")
+	fmt.Scan(&num)
+
+	lista := make([]int, 0, num)
+	fmt.Println("Digite os números da lista:")
+	for i := 0; len(lista) < num; i++ {
+		fmt.Scan(&i)
+		lista = append(lista, i)
+	}
+	fmt.Println(lista)
+
+	verif := true
+	for i := 0; i < num-1; i++ {
+		if lista[i] > lista[i+1] {
+			verif = false
+			break
+		}
+	}
+	if verif == true {
+		fmt.Println("Está em ordem crescente.")
+	} else {
+		fmt.Println("Não está em ordem crescente")
+	}
+}
